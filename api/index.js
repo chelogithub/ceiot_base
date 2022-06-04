@@ -39,10 +39,15 @@ app.use('/js', express.static('spa'));
 
 const PORT = 8080;
 
+
 app.post('/measurement', function (req, res) {
 //-       console.log("device id    : " + req.body.id + " key         : " + req.body.key + " temperature : " + req.body.t + " humidity    : " + req.body.h);
--       console.log(" device id : " + req.body.id + "   key  : " + req.body.key + "   temperature : " + req.body.t + " ºC "+"   pressure  : " + req.body.p + " Pa");
+//-       console.log(" device id : " + req.body.id + "   key  : " + req.body.key + "   temperature : " + req.body.t + " ºC "+"   pressure  : " + req.body.p + " Pa");
+       var today=new Date();
+       var TimeStamp=today.getFullYear()+"/"+today.getMonth()+"/"+today.getDate()+" "+today.getHours()+":"+today.getMinutes()+":"+today.getSeconds()+" ";
+-	console.log(TimeStamp+" device id : " + req.body.id + "   key  : " + req.body.key + "   temperature : " + req.body.t + " ºC "+"   pressure  : " + req.body.p + " Pa");
 	
+
     const {insertedId} = insertMeasurement({id:req.body.id, t:req.body.t, h:req.body.h});
 	res.send("received measurement into " +  insertedId);
 });
