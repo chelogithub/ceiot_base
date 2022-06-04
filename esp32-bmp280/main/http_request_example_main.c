@@ -8,8 +8,10 @@
 */
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "driver/gpio.h"
 #include "esp_system.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
@@ -33,9 +35,20 @@
 
 #define SDA_GPIO 21
 #define SCL_GPIO 22
-
+/* KEY HARDCODEADA */
 #define HARDKEY 1813
+/* SETEO DE GPIO */
+#define GPIO_INPUT_IO_0 15
+#define GPIO_INPUT_IO_1 16
+#define GPIO_INPUT_IO_2 17
+#define GPIO_INPUT_IO_3 18
+#define GPIO_INPUT_IO_4 19
+#define GPIO_INPUT_IO_5 21
+#define GPIO_INPUT_PIN_SEL  ((1ULL<<GPIO_INPUT_IO_0) | (1ULL<<GPIO_INPUT_IO_1) | (1ULL<<GPIO_INPUT_IO_2) | (1ULL<<GPIO_INPUT_IO_3) | (1ULL<<GPIO_INPUT_IO_4) | (1ULL<<GPIO_INPUT_IO_5))
 
+
+
+int  DEV_HW_ID=0;
 
 static const char *TAG = "temp_collector";
 
@@ -44,7 +57,8 @@ static char *REQUEST_GET = "GET " WEB_PATH " HTTP/1.0\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
 
-static char *MSG = "id=" DEVICE_ID "&key=%i&t=%0.2f&p=%0.2f";
+// static char *MSG = "id=" DEVICE_ID "&key=%i&t=%0.2f&p=%0.2f";
+static char *MSG = "id=%d&key=%i&t=%0.2f&p=%0.2f";
 
 static char *REQUEST_POST = "POST " WEB_PATH " HTTP/1.0\r\n"
     "Host: "WEB_SERVER":"WEB_PORT"\r\n"
@@ -84,6 +98,24 @@ static void http_get_task(void *pvParameters)
 
 
     while(1) {
+/* Lectura de ID desde el  GPIO */
+//Se podría colocar antes de la llamada a la tarea "http_get_task"  para que no se consulte en cada ciclo
+
+	ESP_LOGI(TAG," RAW DeviceID %d%d%d%d%d%d = %d\r\n",gpio_get_level(GPIO_INPUT_IO_5)
+							      ,gpio_get_level(GPIO_INPUT_IO_4)
+							      ,gpio_get_level(GPIO_INPUT_IO_3)
+							      ,gpio_get_level(GPIO_INPUT_IO_2)
+							      ,gpio_get_level(GPIO_INPUT_IO_1)
+							      ,gpio_get_level(GPIO_INPUT_IO_0)
+							      ,DEV_HW_ID=(gpio_get_level(GPIO_INPUT_IO_5)*32
+							      		+gpio_get_level(GPIO_INPUT_IO_4)*16
+                                                              		+gpio_get_level(GPIO_INPUT_IO_3)*8
+							      		+gpio_get_level(GPIO_INPUT_IO_2)*4
+							      		+gpio_get_level(GPIO_INPUT_IO_1)*2
+							      		+gpio_get_level(GPIO_INPUT_IO_0)*1));
+
+/* Lectura de ID desde el  GPIO */
+
         if (bmp280_read_float(&dev, &temperature, &pressure, &humidity) != ESP_OK) {
             ESP_LOGI(TAG, "Temperature/pressure reading failed\n");
         } else {
@@ -92,7 +124,7 @@ static void http_get_task(void *pvParameters)
                 ESP_LOGI(TAG,", Humidity: %.2f\n", humidity);
 //                sprintf(send_buf, REQUEST_POST, temperature , humidity );
 //	          sprintf(send_buf, REQUEST_POST, 33 , HARDKEY, temperature , pressure );
-                  sprintf(msg, MSG,HARDKEY, temperature, pressure); 
+                  sprintf(msg, MSG,DEV_HW_ID,HARDKEY, temperature, pressure); 
 	          sprintf(send_buf, REQUEST_POST,(int)strlen(msg),msg);  
 //	    } else {
 //                sprintf(send_buf, REQUEST_POST, temperature , 0);
@@ -176,6 +208,18 @@ static void http_get_task(void *pvParameters)
 
 void app_main(void)
 {
+    gpio_config_t io_conf = {};
+    io_conf.intr_type = GPIO_INTR_DISABLE;
+    io_conf.pin_bit_mask = GPIO_INPUT_PIN_SEL;
+    //set as input mode
+    io_conf.mode = GPIO_MODE_INPUT;
+    //disable pull-down mode
+    io_conf.pull_down_en = 0;
+    //enable pull-up mode
+    io_conf.pull_up_en = 1;
+    //configure GPIO with the given settings
+    gpio_config(&io_conf);
+
     ESP_ERROR_CHECK( nvs_flash_init() );
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
