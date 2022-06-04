@@ -34,6 +34,8 @@
 #define SDA_GPIO 21
 #define SCL_GPIO 22
 
+#define HARDKEY 1813
+
 
 static const char *TAG = "temp_collector";
 
@@ -46,9 +48,10 @@ static char *REQUEST_POST = "POST " WEB_PATH " HTTP/1.0\r\n"
     "Host: "WEB_SERVER":"WEB_PORT"\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "Content-Type: application/x-www-form-urlencoded\r\n"
-    "Content-Length: 20\r\n"
+    "Content-Length: 33\r\n"//    "Content-Length: 20\r\n"
     "\r\n"
-    "id=" DEVICE_ID "&t=%0.2f&h=%0.2f";
+     "id=" DEVICE_ID "&key=%i&t=%0.2f&p=%0.2f";
+   // "id=" DEVICE_ID "&t=%0.2f&h=%0.2f";
 
 static void http_get_task(void *pvParameters)
 {
@@ -85,7 +88,7 @@ static void http_get_task(void *pvParameters)
 //            if (bme280p) {
                 ESP_LOGI(TAG,", Humidity: %.2f\n", humidity);
 //                sprintf(send_buf, REQUEST_POST, temperature , humidity );
-	          sprintf(send_buf, REQUEST_POST, temperature , pressure );
+	          sprintf(send_buf, REQUEST_POST, HARDKEY, temperature , pressure );
 //	    } else {
 //                sprintf(send_buf, REQUEST_POST, temperature , 0);
 //            }
