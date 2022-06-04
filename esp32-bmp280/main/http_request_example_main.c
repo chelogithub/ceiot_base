@@ -44,13 +44,16 @@ static char *REQUEST_GET = "GET " WEB_PATH " HTTP/1.0\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
 
+static char *MSG = "id=" DEVICE_ID "&key=%i&t=%0.2f&p=%0.2f";
+
 static char *REQUEST_POST = "POST " WEB_PATH " HTTP/1.0\r\n"
     "Host: "WEB_SERVER":"WEB_PORT"\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "Content-Type: application/x-www-form-urlencoded\r\n"
-    "Content-Length: 33\r\n"//    "Content-Length: 20\r\n"
+    "Content-Length: %d\r\n"//"Content-Length: 33\r\n"//    "Content-Length: 20\r\n"
     "\r\n"
-     "id=" DEVICE_ID "&key=%i&t=%0.2f&p=%0.2f";
+    "%s";
+//     "id=" DEVICE_ID "&key=%i&t=%0.2f&p=%0.2f";
    // "id=" DEVICE_ID "&t=%0.2f&h=%0.2f";
 
 static void http_get_task(void *pvParameters)
@@ -63,7 +66,7 @@ static void http_get_task(void *pvParameters)
     struct in_addr *addr;
     int s, r;
     char recv_buf[64];
-
+    char msg[64];
     char send_buf[256];
 
     bmp280_params_t params;
@@ -88,7 +91,9 @@ static void http_get_task(void *pvParameters)
 //            if (bme280p) {
                 ESP_LOGI(TAG,", Humidity: %.2f\n", humidity);
 //                sprintf(send_buf, REQUEST_POST, temperature , humidity );
-	          sprintf(send_buf, REQUEST_POST, HARDKEY, temperature , pressure );
+//	          sprintf(send_buf, REQUEST_POST, 33 , HARDKEY, temperature , pressure );
+                  sprintf(msg, MSG,HARDKEY, temperature, pressure); 
+	          sprintf(send_buf, REQUEST_POST,(int)strlen(msg),msg);  
 //	    } else {
 //                sprintf(send_buf, REQUEST_POST, temperature , 0);
 //            }
