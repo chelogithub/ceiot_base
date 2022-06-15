@@ -50,6 +50,21 @@ app.post('/measurement', function (req, res) {
 
     const {insertedId} = insertMeasurement({id:req.body.id, t:req.body.t, h:req.body.h});
 	res.send("received measurement into " +  insertedId);
+
+/* Si el dispositivo no existe, lo agrego*/ 
+/*	console.log(req.body.id);	
+   var device = db.public.many("SELECT * FROM devices WHERE device_id= '"+req.body.id+"'");
+	console.log(device); //console.log(device[0].device_id);
+      
+	if (device =='[]') //== undefined) // device[0].device_id )
+	{
+         console.log("pasamos por acá");
+	 db.public.none("INSERT INTO devices VALUES ('"+req.body.id+ "', '"+req.body.n+"', '"+req.body.key+"')");
+	 
+	 res.send("received new device");
+	}*/
+
+/*-----------------------------------------*/
 });
 
 app.post('/device', function (req, res) {
@@ -65,7 +80,7 @@ app.get('/web/device', function (req, res) {
 		console.log(device);
 		return '<tr><td><a href=/web/device/'+ device.device_id +'>' + device.device_id + "</a>" +
 			       "</td><td>"+ device.name+"</td><td>"+ device.key+"</td></tr>";
-	   }
+	   }  
 	);
 	res.send("<html>"+
 		     "<head><title>Sensores</title></head>" +
