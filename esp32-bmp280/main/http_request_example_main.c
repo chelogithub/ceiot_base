@@ -36,7 +36,7 @@
 #define SDA_GPIO 21
 #define SCL_GPIO 22
 /* KEY HARDCODEADA */
-#define HARDKEY 1813
+#define HARDKEY 1814
 /* SETEO DE GPIO */
 #define GPIO_INPUT_IO_0 15
 #define GPIO_INPUT_IO_1 16
