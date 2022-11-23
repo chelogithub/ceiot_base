@@ -19,6 +19,8 @@ Se instala un Linux Server On premise donde se ejecuta el Backend, Frontend y ba
 El servidor cuenta con un acceso a internet para la visualización de datos desde el exterior.
 Se implementa en AWS una SPA para el acceso al sistema On Premise, donde el mismo solo permite el tráfico proveniente de AWS
 
+![](CIBS_ESQUEMARED.jpg)
+
 ## Resolución
 
 
