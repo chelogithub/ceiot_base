@@ -23,5 +23,17 @@ Se implementa en AWS una SPA para el acceso al sistema On Premise, donde el mism
 
 ## Resolución
 
+### Reconnaissance
 
+### Weaponization
+
+### Delivery
+
+### Exploitation
+
+### Installation
+
+### Command and control
+
+### Actions on objectives
 
