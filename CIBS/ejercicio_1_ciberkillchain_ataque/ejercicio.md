@@ -27,12 +27,19 @@ Se implementa en AWS una SPA para el acceso al sistema On Premise, donde el mism
 EL atacante es una proveedor externo que tiene conocimiento de la existencia del sistema IoT, y de la existencia de la red industrial.
 Utiliza la técnica de Active Scanning T1595 https://attack.mitre.org/techniques/T1595/ del modelo MITRE ATT&CK para obtener toda la infirmación de la red y elaborar su ataque.
 
+El atacante obtuvo
+
+  - Información de la red industrial 
+  - Información de la  existencia del servidor IoT
+
 
 ### Weaponization
 
 
 
 ### Delivery
+
+Utilización de un pendrive con acceso a una de las máquinas de la red
 
 ### Exploitation
 
@@ -41,4 +48,9 @@ Utiliza la técnica de Active Scanning T1595 https://attack.mitre.org/techniques
 ### Command and control
 
 ### Actions on objectives
+
+  - Obtener información del sistema de IoT
+  - Generar pérdida de datos
+  - Generar denegación de servicio
+
 
