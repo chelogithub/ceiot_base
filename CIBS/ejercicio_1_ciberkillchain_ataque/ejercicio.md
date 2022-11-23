@@ -24,8 +24,13 @@ Se implementa en AWS una SPA para el acceso al sistema On Premise, donde el mism
 ## Resolución
 
 ### Reconnaissance
+EL atacante es una proveedor externo que tiene conocimiento de la existencia del sistema IoT, y de la existencia de la red industrial.
+Utiliza la técnica de Active Scanning T1595 https://attack.mitre.org/techniques/T1595/ del modelo MITRE ATT&CK para obtener toda la infirmación de la red y elaborar su ataque.
+
 
 ### Weaponization
+
+
 
 ### Delivery
 
