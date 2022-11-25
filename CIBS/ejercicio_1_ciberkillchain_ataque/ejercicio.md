@@ -32,25 +32,41 @@ El atacante obtuvo
   - Información de la red industrial 
   - Información de la  existencia del servidor IoT
 
-
 ### Weaponization
 
-
+ - Se utiliza como vector de ataque 
+ - Exploit 15 cero days de la instalación para no despertar sospechas
+ - Búsqueda de la PC con acceso a internet.
+ - Instalación de backdoor
+ - Identificación de bd.
 
 ### Delivery
 
-Utilización de un pendrive con acceso a una de las máquinas de la red
+El atacante prepara un pendrive con el malware a insertar en una de las PC con Windows XP de la red industrial
 
 ### Exploitation
+Vulnerabilidad en winxp
+
+
 
 ### Installation
 
+Crea punto de persistencia agregando servicios, autorun, etc.
+
+
 ### Command and control
+Mediante las PC de la red Industrial llega al servidor Linux que contiene el sistema IoT, eta pc tiene dos placas de red, ambas se conectan a dos vlan, una que se conecta con todas las PC  de la red industrial y otra por la cual se conectar a internet
+
 
 ### Actions on objectives
 
-  - Obtener información del sistema de IoT
-  - Generar pérdida de datos
-  - Generar denegación de servicio
+ - El atacante ingresa a la carpeta de proyecto donde se encuentra el archivo de configuración de docker y obtiene credenciales de acceso a la base de datos.
+ - Obtiene acceso a la base de datos y elimina registros 
+ - Elimina credenciales de la base de datos imposibilitando el acceso y el servicio.
+ - Modifica HTML de la SPA IoT informando el ataque y exponiendo el riesgo que representa el sistema.
+ - Obtener información del sistema de IoT
+ - Generar pérdida de datos
+ - Generar denegación de servicio
 
 
+  
