@@ -42,36 +42,29 @@ Utiliza el ataque https://attack.mitre.org/techniques/T0847/ para replicarse por
 
 Como el malware ya se encuentra en la terminal, se realiza un exploit de escala de privilegios para poder dirigir el ataque al Servidor IoT
 https://attack.mitre.org/techniques/T0847/
-
+Con privilegios sobre la PC con windows XP, busca entrar al servidor por medio de la manipulación de cuentas 
+https://attack.mitre.org/techniques/T1098/004/
 
 
 ### Installation
 
-Crea punto de persistencia agregando servicios, autorun, etc.
-https://attack.mitre.org/techniques/T1547/001/ registro de windows para cargar
+Luego del exploit, el registro de Windows es modificado para que sea llamado luego de reiniciarse la PC genrando persistencia
+https://attack.mitre.org/techniques/T1547/001/.
+El atacante recopila información e informa posibilidad de acceso remoto https://attack.mitre.org/techniques/T1048/
 
 
 ### Command and control
 
+EL adversario puede utilizar credenciales válidads que se encuentran en las PC de la red industrial para conectarse al servidor de manera remota.
 https://attack.mitre.org/techniques/T1021/004/
-Mediante las PC de la red Industrial llega al servidor Linux que contiene el sistema IoT, eta pc tiene dos placas de red, ambas se conectan a dos vlan, una que se conecta con todas las PC  de la red industrial y otra por la cual se conectar a internet
 
 
 ### Actions on objectives
 
-https://attack.mitre.org/techniques/T1048/
-
-Una vez obtenido el acceso al servidor https://attack.mitre.org/techniques/T1485/  destrucciond de datos
+Una vez obtenido el acceso al servidor el atacante destruye los datos presentes en el servidor dando de baja el servicio. https://attack.mitre.org/techniques/T1485/ 
 
 
 
- - El atacante ingresa a la carpeta de proyecto donde se encuentra el archivo de configuración de docker y obtiene credenciales de acceso a la base de datos.
- - Obtiene acceso a la base de datos y elimina registros 
- - Elimina credenciales de la base de datos imposibilitando el acceso y el servicio.
- - Modifica HTML de la SPA IoT informando el ataque y exponiendo el riesgo que representa el sistema.
- - Obtener información del sistema de IoT
- - Generar pérdida de datos
- - Generar denegación de servicio
 
 
   
