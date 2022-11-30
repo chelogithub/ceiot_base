@@ -48,14 +48,14 @@ https://attack.mitre.org/techniques/T1098/004/
 
 Luego del exploit, el registro de Windows es modificado para que sea llamado luego de reiniciarse la PC genrando persistencia
 https://attack.mitre.org/techniques/T1547/001/.
+EL adversario puede utilizar credenciales válidads que se encuentran en las PC de la red industrial para conectarse al servidor de manera remota.
+https://attack.mitre.org/techniques/T1021/004/
 El atacante recopila información e informa posibilidad de acceso remoto https://attack.mitre.org/techniques/T1048/
 
 
 ### Command and control
 
-EL adversario puede utilizar credenciales válidads que se encuentran en las PC de la red industrial para conectarse al servidor de manera remota.
-https://attack.mitre.org/techniques/T1021/004/
-
+Una vez informado al atacante las credenciales para el acceo remoto, el atacante toma el control del servidor.
 
 ### Actions on objectives
 
