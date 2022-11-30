@@ -16,6 +16,8 @@ Los nodos reportan a Gateways que se encunentran instalados en una red LAN indus
 Se instala un Linux Server On premise donde se ejecuta el Backend, Frontend y base de datos de la aplicaciòn.
 El servidor cuenta con un acceso a internet para la visualización de datos desde el exterior.
 Se implementa en AWS una SPA para el acceso al Servidor On Premise.
+
+
 ![](CIBS_ESQUEMARED.jpg)
 
 ## Resolución
