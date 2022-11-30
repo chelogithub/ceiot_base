@@ -1,7 +1,5 @@
 # Ejercicio CiberKillChain - Ataque
 
-Haga una copia de este documto
-
 ## Alumno
 
 Marcelo García
