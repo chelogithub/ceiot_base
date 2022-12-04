@@ -8,7 +8,7 @@ Marcelo García
 
 Mitigar una cyberkillchain usando técnicas de la matriz de Att&ck para un escenario relacionado a tu trabajo práctico.
 
-La defensa se realiza en forma inversa con respecto al ataque, de manera de poder brindar defense en la mayor cantidad de capas posibles.
+La defensa se realiza en forma inversa con respecto al ataque, de manera de poder brindar defensa en la mayor cantidad de capas posibles.
 
 ### Actions on objectives
 
