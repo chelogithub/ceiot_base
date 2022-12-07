@@ -24,7 +24,7 @@ Dado que la conexión SSH es un recurso necesario para el sistema, se decide mit
 
 ### Exploitation
 
-La vulnerabilidad se manifiesta por medio de una escalada de privilegios, para ello se busca reforzar la complejidad y seguridad de los passwords https://attack.mitre.org/mitigations/M1027/ y se restringe el acceso SSH a usuarios específicos https://attack.mitre.org/mitigations/M1042/ solo usuarios de alto rango en la red.
+La vulnerabilidad se manifiesta por medio de una escalada de privilegios, para ello se busca reforzar la complejidad y seguridad de los passwords https://attack.mitre.org/mitigations/M1027/ y se restringe el acceso SSH a usuarios específicos https://attack.mitre.org/mitigations/M1042/ ,solo usuarios de alto rango en la red.
 
 ### Delivery
 
@@ -36,7 +36,7 @@ NO hay medidas aplicables. Esto se desarrolla fuera del alcance de la victima.
 
 ### Reconnaissance
 
-Tratándose de un proveedor externo, se capacita al peronal a cargo de la red para concientizar sobre el riesgo que presenta brindar información sensible de la red. Además se define una persona que estará permanente con el proveedor cuando realice los trabajos, redujendo la información a la que puede acceder sin control https://attack.mitre.org/mitigations/M1056/
+Tratándose de un proveedor externo, se capacita al peronal advierte al personale que tiene conocimientos de la red para concientizar sobre el riesgo que presenta brindar información sensible de la misma. Además se define una persona que acompañará permanentemente a los proveedores cuando se realicen los trabajos, de esta manera se busca reducir el acceos a informaciòn sensible. https://attack.mitre.org/mitigations/M1056/ 
 
 Conclusiones
 
