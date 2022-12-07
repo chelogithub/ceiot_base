@@ -40,7 +40,7 @@ Tratándose de un proveedor externo, se capacita al peronal advierte al personal
 
 Conclusiones
 
-Con las medidas adoptadas se presentan defensas en la mayoria de las etapas de la cadena de ataque, teniendo en cuenta que el ataque se verá frustado en el caso de que una sea exitosa, el nivel de defensa es robusto. No por eso deberá ser considerado como final y se deberá ir actualizando de acuerdo a las nuevas vulnerabilidades que se descubran.
+Con las medidas adoptadas se presentan defensas en la mayoria de las etapas de la cadena de ataque, teniendo en cuenta que el ataque se verá frustado en el caso de que una sea exitosa, el nivel de defensa es robusto. No por eso deberá ser considerado como final y se deberá revisar períodicamente en busca de nuevas vulnerabilidades.
 
 
 
