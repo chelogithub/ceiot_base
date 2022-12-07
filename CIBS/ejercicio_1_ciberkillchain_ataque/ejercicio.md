@@ -52,11 +52,11 @@ https://attack.mitre.org/techniques/T1098/004/
 
 ### Installation
 
-Luego del exploit, el registro de Windows es modificado para que sea llamado luego de reiniciarse la PC genrando persistencia
+Luego del exploit, el registro de Windows es modificado para que sea llamado luego de reiniciarse la PC generando persistencia
 https://attack.mitre.org/techniques/T1547/001/.
 EL adversario puede utilizar credenciales válidads que se encuentran en las PC de la red industrial para conectarse al servidor de manera remota.
 https://attack.mitre.org/techniques/T1021/004/
-El atacante recopila información e informa posibilidad de acceso remoto https://attack.mitre.org/techniques/T1048/
+El atacante recopila información e informa posibilidad de acceso remoto https://attack.mitre.org/techniques/T1048/ desde el servidor.
 
 
 ### Command and control
