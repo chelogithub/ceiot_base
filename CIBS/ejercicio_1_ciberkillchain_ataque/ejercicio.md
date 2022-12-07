@@ -66,7 +66,7 @@ Una vez informado al atacante las credenciales para el acceo remoto, el atacante
 ### Actions on objectives
 
 Una vez obtenido el acceso al servidor el atacante destruye los datos presentes en el servidor dando de baja el servicio. https://attack.mitre.org/techniques/T1485/ 
-Previo al borrado de informaciòn accede a credenciales de AWS y se copia en la instacia EC2 de AWS a la espera de un nuevo ataque una vez que el servidor sea restaurado.
+Previo al borrado de información accede a credenciales de AWS del servidor y se copia en la instacia EC2 de AWS a la espera de un nuevo ataque una vez que el servidor sea restaurado.
 
 
 
